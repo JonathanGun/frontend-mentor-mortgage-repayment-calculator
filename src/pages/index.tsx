@@ -21,9 +21,12 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box className="min-h-screen w-screen">
-        <Stack spacing={0}>
-          <Box className="bg-white p-6 space-y-4">
+      <Box className="min-h-screen w-screen bg-blue-50 flex justify-center items-center">
+        <Stack
+          spacing={0}
+          className="md:rounded-xl md:shadow-lg flex flex-col md:flex-row items-stretch justify-center h-max w-full md:w-[80%] bg-white"
+        >
+          <Box className="min-w-fit min-h-full max-w-4xl p-6 space-y-4 grow">
             <Box className="space-y-1">
               <Typography
                 variant="h5"
@@ -42,9 +45,9 @@ const IndexPage: React.FC<PageProps> = () => {
               >
                 Mortgage Amount
               </label>
-              <Box className="flex flex-row w-full h-full border border-slate-700 rounded-md">
-                <Box className="flex justify-center pl-4 p-2 rounded-l-md bg-slate-200">
-                  <span className="pr-2 font-bold">£</span>
+              <Box className="flex flex-border flex-row w-full h-full border border-slate-700 rounded-md">
+                <Box className="flex justify-center pl-4 p-2 rounded-l-md bg-sky-100">
+                  <span className="pr-2 font-bold text-slate-600">£</span>
                 </Box>
                 <Box className="flex flex-row grow justify-center rounded-r-md h-full w-full rounded-lg mt-2">
                   <input
@@ -56,48 +59,53 @@ const IndexPage: React.FC<PageProps> = () => {
                 </Box>
               </Box>
             </Box>
-            <Box>
-              <label
-                htmlFor="Mortgage Term"
-                className="block text-sm font-medium text-sky-700 mb-2"
-              >
-                Mortgage Term
-              </label>
-              <Box className="flex flex-row w-full h-full border border-slate-700 rounded-md">
-                <Box className="flex flex-row grow justify-center rounded-r-md h-full w-full rounded-lg mt-2">
-                  <input
-                    id="Mortgage Term"
-                    name="Mortgage Term"
-                    type="number"
-                    className="ms-3 grow h-full outline-0"
-                  />
-                </Box>
-                <Box className="flex justify-center pl-4 p-2 rounded-r-md bg-slate-200">
-                  <span className="pr-2 font-bold">years</span>
-                </Box>
-              </Box>
-            </Box>
-            <Box>
-              <label
-                htmlFor="Interest Rate"
-                className="block text-sm font-medium text-sky-700 mb-2"
-              >
-                Interest Rate
-              </label>
-              <Box className="flex flex-row w-full h-full border border-slate-700 rounded-md">
-                <Box className="flex flex-row grow justify-center rounded-r-md h-full w-full rounded-lg mt-2">
-                  <input
-                    id="Interest Rate"
-                    name="Interest Rate"
-                    type="number"
-                    className="ms-3 grow h-full outline-0"
-                  />
-                </Box>
-                <Box className="flex justify-center pl-4 p-2 rounded-r-md bg-slate-200">
-                  <span className="pr-2 font-bold">%</span>
+            <Stack
+              spacing={0}
+              className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-2"
+            >
+              <Box className="grow">
+                <label
+                  htmlFor="Mortgage Term"
+                  className="block text-sm font-medium text-sky-700 mb-2"
+                >
+                  Mortgage Term
+                </label>
+                <Box className="flex flex-row border w-full border-slate-700 rounded-md">
+                  <Box className="flex flex-row grow justify-center rounded-r-md h-full w-full rounded-lg mt-2">
+                    <input
+                      id="Mortgage Term"
+                      name="Mortgage Term"
+                      type="number"
+                      className="ms-3 grow h-full outline-0"
+                    />
+                  </Box>
+                  <Box className="flex justify-center pl-4 p-2 rounded-r-md bg-sky-100">
+                    <span className="pr-2 font-bold text-slate-600">years</span>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+              <Box className="grow">
+                <label
+                  htmlFor="Interest Rate"
+                  className="block text-sm font-medium text-sky-700 mb-2"
+                >
+                  Interest Rate
+                </label>
+                <Box className="flex flex-row w-full border border-slate-700 rounded-md">
+                  <Box className="flex flex-row grow justify-center rounded-r-md h-full w-full rounded-lg mt-2">
+                    <input
+                      id="Interest Rate"
+                      name="Interest Rate"
+                      type="number"
+                      className="ms-3 grow h-full outline-0"
+                    />
+                  </Box>
+                  <Box className="flex justify-center pl-4 p-2 rounded-r-md bg-sky-100">
+                    <span className="pr-2 font-bold text-slate-600">%</span>
+                  </Box>
+                </Box>
+              </Box>
+            </Stack>
             <Box className="space-y-3">
               <label
                 htmlFor="Mortgage Type"
@@ -157,8 +165,8 @@ const IndexPage: React.FC<PageProps> = () => {
               </button>
             </Box>
           </Box>
-          <Box className="h-96 bg-secondary text-white">
-            <Box className="flex flex-row w-full items-center justify-center space-x-2 pt-9">
+          <Box className="min-h-96 md:min-h-full bg-secondary text-white md:rounded-r-xl md:rounded-bl-[100px] flex flex-col items-center justify-center px-8 grow">
+            <Box className="flex flex-row w-full items-center justify-center space-x-2">
               <img src={calculator_image} alt="calculator image" />
             </Box>
             <Typography
@@ -171,7 +179,8 @@ const IndexPage: React.FC<PageProps> = () => {
               variant="h5"
               className="text-sm text-center text-secondary-light pt-3"
             >
-              Complete the form and click "calculate repayments" to see what your monthly repayments would be.
+              Complete the form and click "calculate repayments" to see what
+              your monthly repayments would be.
             </Typography>
           </Box>
         </Stack>
